@@ -1,4 +1,4 @@
-package com.academiadodesenvolvedor.apirest.request;
+package com.academiadodesenvolvedor.apirest.requests;
 
 import com.academiadodesenvolvedor.apirest.models.Curso;
 import jakarta.validation.constraints.NotEmpty;

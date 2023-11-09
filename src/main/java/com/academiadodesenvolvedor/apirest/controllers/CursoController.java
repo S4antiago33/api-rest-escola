@@ -4,7 +4,7 @@ import com.academiadodesenvolvedor.apirest.dtos.CursoDTO;
 import com.academiadodesenvolvedor.apirest.exceptions.ResourceNotFoundException;
 import com.academiadodesenvolvedor.apirest.models.Curso;
 import com.academiadodesenvolvedor.apirest.repository.CursoRepsitory;
-import com.academiadodesenvolvedor.apirest.request.CreateCursoRequest;
+import com.academiadodesenvolvedor.apirest.requests.CreateCursoRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

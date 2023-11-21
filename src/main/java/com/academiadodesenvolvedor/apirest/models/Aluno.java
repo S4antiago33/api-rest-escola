@@ -1,10 +1,10 @@
 package com.academiadodesenvolvedor.apirest.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
+
 
 @Data
 @Entity(name = "alunos")
@@ -15,4 +15,12 @@ public class Aluno {
     private String nome;
     private String email;
     private String cpf;
+    @ManyToMany(mappedBy = "alunos")
+    private List<Curso> cursos;
+    @OneToOne
+    @JoinColumn(name = "documento_id")
+    private Documentos documentos;
+
+    @OneToMany(mappedBy = "aluno")
+    private List<Nota> notas;
 }

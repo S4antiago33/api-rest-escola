@@ -16,7 +16,6 @@ import java.util.List;
 @RestControllerAdvice
 public class InputValidationErrorHandler {
 
-
     MessageSource messageSource;
 
     @Autowired
@@ -27,15 +26,14 @@ public class InputValidationErrorHandler {
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public List<InputErrorDTO> handle(MethodArgumentNotValidException erro) {
-        List<FieldError> erros = erro.getBindingResult().getFieldErrors();
+        List<FieldError> errors = erro.getBindingResult().getFieldErrors();
 
-        return erros.stream()
+        return errors.stream()
                 .map(campoErro -> {
                     String mensagem = this.messageSource.getMessage(campoErro, LocaleContextHolder.getLocale());
                     return new InputErrorDTO(campoErro.getField(), mensagem);
                 })
                 .toList();
     }
-
 
 }

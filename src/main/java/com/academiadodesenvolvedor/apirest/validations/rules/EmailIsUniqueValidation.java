@@ -24,9 +24,9 @@ public class EmailIsUniqueValidation implements ConstraintValidator<EmailIsUniqu
     }
 
     @Override
-    public boolean isValid(Object value, ConstraintValidatorContext constraintValidatorContext) {
+    public boolean isValid(Object value, ConstraintValidatorContext context) {
         String entity = this.getEntityClass();
-        String sql = "SELECT e FROM " + entity + " e WHERE " + this.field + " = :value";
+        String sql = "SELECT e FROM " + entity + " e WHERE e." + this.field + " = :value";
 
         List<?> emailList = this.entityManager.createQuery(sql, this.entity)
                 .setParameter("value", value)
